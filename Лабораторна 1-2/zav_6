@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Практична робота №1-2</title>
+</head>
+
+<body>
+    <br>
+
+    <h1 align="center">АНКЕТА СТУДЕНТА</h1>
+
+    <hr>
+
+    <h2>1. Особисті дані</h2>
+
+    <table border="1" cellpadding="8" cellspacing="0">
+        <tr>
+            <td rowspan="5" width="160" align="center">
+                <img src="https://i.postimg.cc/Jzt5d18F/photo.jpg" width="150" height="180" alt="Фото студента">
+            </td>
+            <td><b>Прізвище:</b></td>
+            <td>Ганжара</td>
+        </tr>
+
+        <tr>
+            <td><b>Ім'я:</b></td>
+            <td>Богдан</td>
+        </tr>
+
+        <tr>
+            <td><b>По батькові:</b></td>
+            <td>Сергійович</td>
+        </tr>
+
+        <tr>
+            <td><b>Дата народження:</b></td>
+            <td>09.07.2007</td>
+        </tr>
+
+        <tr>
+            <td><b>Контактні дані:</b></td>
+            <td>
+                Телефон: +380 68 123 45 67<br>
+                Email: bogdanganzara@gmail.com
+            </td>
+        </tr>
+    </table>
+
+
+    <h2>2. Освіта</h2>
+
+    <table border="1" cellpadding="8" cellspacing="0" width="80%">
+        <tr bgcolor="LightSkyBlue">
+            <th>Період навчання</th>
+            <th>Навчальний заклад</th>
+            <th>Спеціальність</th>
+        </tr>
+
+        <tr>
+            <td>Вересень 2014 - Травень 2024</td>
+            <td>Великосамбірське ЗЗСО I - III ступенів</td>
+            <td>Повна загальна середня</td>
+        </tr>
+
+        <tr>
+            <td>Вересень 2024 – теперішній час</td>
+            <td>Сумський державний університет</td>
+            <td>Комп'ютерні науки</td>
+        </tr>
+
+        
+    </table>
+
+
+    <h2>3. Професійні навички</h2>
+
+    <ul type="square">
+        <li><b>C</b> — базовий рівень</li>
+        <li><b>C++</b> — середній рівень</li>
+        <li><b>C# / .NET</b> — середній рівень</li>
+        <li><b>Python</b> — середній рівень</li>
+        <li><b>HTML</b> — середній рівень</li>
+        <li><b>CSS</b> — середній рівень</li>
+        <li><b>JavaScript</b> — базовий рівень</li>
+        <li><b>MySQL / SQL</b> — середній рівень</li>
+        <li><b>Git / GitHub</b> — базовий рівень</li>
+        <li><b>Microsoft Word</b> — високий рівень</li>
+    </ul>
+
+
+    <h2>4. Іноземні мови</h2>
+
+    <table border="1" cellpadding="8" cellspacing="0">
+        <tr bgcolor="LightCyan">
+            <th>Мова</th>
+            <th>Рівень володіння</th>
+        </tr>
+
+        <tr>
+            <td>Англійська</td>
+            <td>Intermediate (B1)</td>
+        </tr>
+
+        <tr>
+            <td>Українська</td>
+            <td>Вільне володіння</td>
+        </tr>
+    </table>
+
+
+    <h2>5. Досвід роботи</h2>
+
+    <p>
+            Декілька місяців але не за спеціальністю
+    </p>
+
+
+    <h2>6. Професійні інтереси</h2>
+
+    <ol type="1">
+        <li>Розробка програмного забезпечення</li>
+        <li>Frontend-розробка</li>
+        <li>Розробка програм на C# та .NET</li>
+        <li>Веб-технології</li>
+    </ol>
+
+    <h2>7. Хоббі</h2>
+
+    <ul type="circle">
+        <li>Програмування</li>
+        <li>Комп'ютерні ігри</li>
+        <li>Спорт</li>
+        <li>Агресивна їзда на авто</li>
+        <li>Вивчення нових технологій</li>
+    </ul>
+
+    <hr>
+
+
+</body>
+
+</html>
