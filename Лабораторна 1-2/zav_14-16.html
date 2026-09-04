@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Форма резюме та Пошук</title>
+</head>
+<body>
+
+    <p align="right">
+        <a href="zav_6.html" title="Перейти до анкетних даних">Перейти до анкетних даних студента</a>
+    </p>
+
+    <hr>
+
+    <h2 align="center">Форма відправлення резюме у кадрову агенцію</h2>
+
+    <form action="send_resume.php" method="POST" enctype="multipart/form-data">
+
+        <p><b>П. І. Б. кандидата:</b><br>
+        <input type="text" name="fullname" size="40" required></p>
+
+        <p><b>Контактний Email:</b><br>
+        <input type="email" name="email" size="30" required></p>
+
+        <p><b>Телефон:</b><br>
+        <input type="tel" name="phone" size="20" required></p>
+
+        <p><b>Бажана вакансія:</b><br>
+        <select name="job_position">
+            <option value="frontend">Frontend Developer</option>
+            <option value="backend">Backend Developer</option>
+            <option value="fullstack">Fullstack Developer</option>
+            <option value="qa">QA Engineer</option>
+            <option value="designer">UI/UX Designer</option>
+        </select></p>
+
+        <p><b>Рівень кваліфікації:</b><br>
+        <input type="radio" name="level" value="junior" checked> Junior
+        <input type="radio" name="level" value="middle"> Middle
+        <input type="radio" name="level" value="senior"> Senior</p>
+
+        <p><b>Умови роботи:</b><br>
+        <input type="checkbox" name="relocate" value="yes"> Готовий до переїзду<br>
+        <input type="checkbox" name="remote" value="yes" checked> Цікавить віддалена робота</p>
+
+        <p><b>Коротко про ваш досвід та навички:</b><br>
+        <textarea name="experience" cols="45" rows="4"></textarea></p>
+
+        <p><b>Завантажити файл резюме (PDF, DOCX):</b><br>
+        <input type="file" name="resume_file"></p>
+
+        <p>
+            <input type="submit" value="Надіслати резюме">
+            <input type="reset" value="Очистити форму">
+        </p>
+
+    </form>
+
+    <hr>
+
+    <center> <p><img src="https://i.postimg.cc/XYHQVs4X/image.png"
+
+    alt=Пошук"> </center></p>
+
+    <center><a href="http://google.com/" title="Google Search" >Знайти в Google</a></center>
+
+</body>
+</html>
