@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    position: relative;
+    width: 380px;
+    height: 200px;
+}
+
+.block {
+    text-align: center;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* --- Блок 1.1 --- */
+.block11 {
+    position: absolute;
+    left: 0px;
+    top: 120px;
+    width: 110px;
+    height: 35px;
+    background-color: #00b050;
+    border: 2px solid #000000;
+    line-height: 31px;
+}
+
+/* --- Блок 2.1 --- */
+.block21 {
+    display: none;
+    position: absolute;
+    left: 110px; 
+    top: -125px;
+    width: 130px;
+    height: 170px;
+    background-color: #4472c4;
+    color: white;
+    border: 2px solid #000000;
+    padding-top: 25px;
+}
+
+.block11:hover .block21 {
+    display: block;
+}
+
+.block12 {
+    position: absolute;
+    left: 120px; 
+    top: 120px;
+    width: 110px;
+    height: 35px;
+    background-color: #00b050;
+    border: 2px solid #000000;
+    line-height: 31px;
+}
+
+.block22 {
+    display: none;
+    position: absolute;
+    /* Проміжок/зміщення між блоками */
+    left: 110px; 
+    top: -125px;
+    width: 130px;
+    height: 170px;
+    background-color: #4472c4;
+    color: white;
+    border: 2px solid #000000;
+    padding-top: 25px;
+}
+
+.block12:hover .block22 {
+    display: block;
+}

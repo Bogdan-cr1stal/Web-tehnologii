@@ -1,0 +1,42 @@
+body {
+    background-color: #e1e1e1;
+}
+
+.wrapper {
+    width: 940px;
+    margin: 0 auto;
+}
+
+.title {
+    text-align: center;
+    text-decoration: underline;
+    font-weight: 600;
+    font-size: 18px;
+    color: #333333;
+    padding-bottom: 50px;
+}
+
+.autor, .topic, .definition {
+    float: left;
+    padding: 20px;
+    margin: 5px;
+    height: 200px;
+}
+
+.autor {
+    width: 250px;
+    background-color: #4583e6;
+    color: #ffffff;
+}
+
+.topic {
+    width: 250px;
+    background-color: #336e20;
+    color: #ffffff;
+}
+
+.definition {
+    width: 250px;
+    background-color: #ffffff;
+    color: #333333;
+}
