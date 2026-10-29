@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 1 - Перевірка потрапляння точки в прямокутник</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Потрапляння точки в область S</h2>
+        
+        <!-- Блок налаштування прямокутника -->
+        <div class="section">
+            <h3>Межі прямокутника (область S):</h3>
+            <div class="input-group">
+                <label>X1: <input type="number" id="xMin" value="-5"></label>
+                <label>X2: <input type="number" id="xMax" value="5"></label>
+            </div>
+            <div class="input-group">
+                <label>Y1: <input type="number" id="yMin" value="-5"></label>
+                <label>Y2: <input type="number" id="yMax" value="5"></label>
+            </div>
+        </div>
+
+ 
+        <div class="section">
+            <h3>Координати точки A:</h3>
+            <div class="input-group">
+                <label>X: <input type="number" id="pointX" value="1" placeholder="Введіть X"></label>
+                <label>Y: <input type="number" id="pointY" value="1" placeholder="Введіть Y"></label>
+            </div>
+        </div>
+
+        <button id="checkBtn">Перевірити</button>
+
+        <div id="output" class="output">
+            Введіть дані та натисніть «Перевірити».
+        </div>
+    </div>
+
+    <!-- Підключення файлу зі скриптом -->
+    <script src="script.js"></script>
+
+</body>
+</html>
