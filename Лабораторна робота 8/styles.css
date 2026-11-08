@@ -1,0 +1,739 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f3f8;
+    color: #263445;
+    padding: 40px 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+    text-align: center;
+    color: #263e5c;
+    margin-bottom: 25px;
+    font-size: 28px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+td {
+    border: 1px solid #cbd5e1;
+    padding: 15px 5px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    color: #334155;
+    background-color: #e8edf5;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+td:hover {
+    background-color: #d1e3ff;
+}
+
+td.active {
+    background-color: #2864b4;
+    color: #ffffff;
+    border-color: #2864b4;
+}
+
+.content {
+    border: 1px solid #cbd5e1;
+    border-top: none;
+    padding: 25px;
+    min-height: 350px;
+    background-color: #ffffff;
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+.content h2 {
+    color: #2864b4;
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.content p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.content img {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    height: 230px;
+    object-fit: cover;
+    margin: 20px auto 0;
+    border-radius: 8px;
+}
+
+@media (max-width: 550px) {
+    body {
+        padding: 15px 8px;
+    }
+
+    .container {
+        padding: 12px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    td {
+        font-size: 11px;
+        padding: 12px 2px;
+    }
+
+    .content {
+        padding: 15px;
+    }
+
+    .content h2 {
+        font-size: 19px;
+    }
+
+    .content p {
+        font-size: 14px;
+    }
+
+    .content img {
+        height: 180px;
+    }
+}
+
+
+/* Оформлення завдання 2 */
+
+.task-title {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #cbd5e1;
+    color: #263e5c;
+    font-size: 24px;
+}
+
+.slider-description {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #334155;
+    font-size: 18px;
+}
+
+/* Основний блок слайдера */
+
+.slider {
+    max-width: 90%;
+    position: relative;
+    margin: auto;
+    height: 300px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+/* Зображення слайдів */
+
+.slider .slide img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Кнопки вперед та назад */
+
+.slider .prev,
+.slider .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.3s;
+    background-color: rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+}
+
+.slider .prev {
+    left: 0;
+    border-radius: 0 4px 4px 0;
+}
+
+.slider .next {
+    right: 0;
+    border-radius: 4px 0 0 4px;
+}
+
+/* Ефект при наведенні */
+
+.slider .prev:hover,
+.slider .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Заголовок слайда */
+
+.slideText {
+    position: absolute;
+    color: #ffffff;
+    font-size: 28px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    text-shadow: 1px 1px 3px #000000;
+}
+
+/* Кружечки навігації */
+
+.slider-dots {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.slider-dots_item {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 0 3px;
+    background-color: #cccccc;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.slider-dots_item.active,
+.slider-dots_item:hover {
+    background-color: #2864b4;
+}
+
+/* Анімація появи слайдів */
+
+.slider .slide {
+    animation-name: fade;
+    animation-duration: 1.2s;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Адаптація для мобільних пристроїв */
+
+@media (max-width: 550px) {
+    .slider {
+        max-width: 100%;
+        height: 200px;
+    }
+
+    .slider .slide img {
+        height: 200px;
+    }
+
+    .slideText {
+        font-size: 18px;
+    }
+
+    .slider .prev,
+    .slider .next {
+        padding: 10px;
+        font-size: 16px;
+    }
+}
+
+/* Завдання 3 */
+
+.variant-slider {
+    width: 100%;
+    min-height: 540px;
+    position: relative;
+    margin: 20px auto 40px;
+    padding: 20px 0;
+    background-color: #3498d0;
+}
+
+.variant-slider h2 {
+    text-align: center;
+    color: white;
+    font-family: cursive;
+    font-style: italic;
+    font-size: 34px;
+    margin-bottom: 25px;
+}
+
+/* Область зображень */
+
+.variant-slides {
+    width: min(90%, 1050px);
+    aspect-ratio: 7 / 4;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+    background-color: white;
+}
+
+.variant-slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    animation: variantFade 1s;
+}
+
+.variant-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Заголовок на зображенні */
+
+.variant-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 1px 1px 4px black;
+    width: 90%;
+}
+
+/* Стрілки */
+
+.variant-prev,
+.variant-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.variant-prev {
+    left: 2%;
+}
+
+.variant-next {
+    right: 2%;
+}
+
+.variant-prev:hover,
+.variant-next:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Кружечки */
+
+.variant-dots {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.variant-dots span {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    margin: 0 8px;
+    border-radius: 50%;
+    background-color: #a7cce5;
+    cursor: pointer;
+}
+
+.variant-dots span.active,
+.variant-dots span:hover {
+    background-color: #173b58;
+}
+
+/* Анімація */
+
+@keyframes variantFade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Адаптація */
+
+@media (max-width: 600px) {
+    .variant-slider {
+        min-height: 300px;
+    }
+
+    .variant-slider h2 {
+        font-size: 23px;
+    }
+
+    .variant-text {
+        font-size: 16px;
+    }
+
+    .variant-prev,
+    .variant-next {
+        font-size: 20px;
+        padding: 5px;
+    }
+}
+
+
+/* Завдання 4. Форма підбору будинку */
+
+.form-container {
+    width: 100%;
+    max-width: 700px;
+    margin: 25px auto 40px;
+    padding: 25px 30px;
+    background-color: #9bb2cc;
+    box-sizing: border-box;
+}
+
+#housingForm {
+    background-color: white;
+    padding: 20px 35px;
+    color: #263650;
+}
+
+#housingForm h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: #263e5c;
+}
+
+/* Рядки форми */
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.form-row > label {
+    min-width: 125px;
+}
+
+.form-row input[type="text"],
+.form-row input[type="email"],
+.form-row input[type="tel"] {
+    width: 200px;
+    max-width: 100%;
+    padding: 5px;
+    border: 1px solid #999;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.form-row input:focus,
+.form-row textarea:focus,
+.form-row select:focus {
+    outline: 2px solid #3498d0;
+    border-color: #3498d0;
+}
+
+/* Повідомлення про помилки */
+
+.error {
+    display: block;
+    width: 100%;
+    color: #d62828;
+    font-size: 12px;
+    margin-left: 0;
+}
+
+.form-row .error {
+    margin-left: 133px;
+}
+
+/* Групи елементів */
+
+.form-group {
+    margin: 15px 0;
+}
+
+.form-group p {
+    margin-bottom: 5px;
+}
+
+.form-group label {
+    display: block;
+    margin: 4px 0;
+}
+
+.form-group input[type="radio"],
+.form-group input[type="checkbox"] {
+    cursor: pointer;
+}
+
+/* Розділювачі */
+
+#housingForm hr {
+    border: none;
+    border-top: 2px solid #526b86;
+    margin: 15px 0;
+}
+
+/* Вибір кількості кімнат */
+
+#housingForm select {
+    padding: 4px;
+    border: 1px solid #999;
+    border-radius: 3px;
+}
+
+/* Повзунок ціни */
+
+.price-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.price-control input {
+    width: 180px;
+    cursor: pointer;
+}
+
+#priceValue {
+    font-weight: bold;
+    color: #263e5c;
+}
+
+/* Додаткові побажання */
+
+.wishes-row textarea {
+    width: 250px;
+    max-width: 100%;
+    padding: 7px;
+    border: 1px solid #999;
+    border-radius: 3px;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+/* Кнопки */
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.form-buttons button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #344e6b;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.form-buttons button:hover {
+    background-color: #3498d0;
+}
+
+/* Повідомлення про результат */
+
+#formMessage {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #238636;
+}
+
+/* Адаптація форми */
+
+@media (max-width: 600px) {
+    .form-container {
+        padding: 12px;
+    }
+
+    #housingForm {
+        padding: 15px;
+    }
+
+    .form-row {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .form-row .error {
+        margin-left: 0;
+    }
+
+    .form-row input[type="text"],
+    .form-row input[type="email"],
+    .form-row input[type="tel"] {
+        width: 100%;
+    }
+
+    .wishes-row textarea {
+        width: 100%;
+    }
+}
+
+
+/* Завдання 5. Реєстрація та авторизація */
+
+.auth-container {
+    width: 100%;
+    max-width: 950px;
+    margin: 25px auto 40px;
+    padding: 30px;
+    background-color: #9bb2cc;
+    box-sizing: border-box;
+}
+
+.auth-container > h2 {
+    text-align: center;
+    color: #263e5c;
+    font-size: 26px;
+}
+
+.auth-description {
+    text-align: center;
+    margin: 10px 0 25px;
+    color: #263650;
+}
+
+/* Розміщення форм */
+
+.auth-forms {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 25px;
+}
+
+.auth-forms form {
+    flex: 1;
+    max-width: 400px;
+    padding: 25px;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+/* Заголовки форм */
+
+.auth-forms h3 {
+    text-align: center;
+    color: #263e5c;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+/* Поля введення */
+
+.auth-forms label {
+    display: block;
+    margin: 12px 0 5px;
+    color: #263650;
+    font-weight: bold;
+}
+
+.auth-forms input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #aab5c2;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.auth-forms input:focus {
+    outline: 2px solid #3498d0;
+    border-color: #3498d0;
+}
+
+
+.auth-forms button {
+    width: 100%;
+    margin-top: 22px;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #344e6b;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.auth-forms button:hover {
+    background-color: #3498d0;
+}
+
+
+#authMessage {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+
+@media (max-width: 700px) {
+    .auth-container {
+        padding: 15px;
+    }
+
+    .auth-forms {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .auth-forms form {
+        width: 100%;
+    }
+}
