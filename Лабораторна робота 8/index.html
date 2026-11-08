@@ -1,0 +1,366 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота 8</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+	<h1>Лабораторна робота 8<h1>
+        <h2>Завдання 1</h2>
+
+        <table>
+            <tr>
+                <td class="active" onclick="showTab(0)">Назва 1</td>
+                <td onclick="showTab(1)">Назва 2</td>
+                <td onclick="showTab(2)">Назва 3</td>
+                <td onclick="showTab(3)">Назва 4</td>
+                <td onclick="showTab(4)">Назва 5</td>
+            </tr>
+        </table>
+
+        <div class="content">
+
+            <div class="tab-panel active">
+                <h2>Програмування</h2>
+                <p>
+                    Програмування - це процес створення програмного
+                    забезпечення за допомогою мов програмування.
+                    Воно дозволяє створювати вебсайти, мобільні
+                    застосунки та різноманітні інформаційні системи.
+                </p>
+                <img src="images/1.jpg" alt="Програмування">
+            </div>
+
+            <!-- Вкладка 2 -->
+            <div class="tab-panel">
+                <h2>Веброзробка</h2>
+                <p>
+                    Веброзробка - це процес створення вебсайтів
+                    та вебзастосунків. Основними технологіями є
+                    HTML, CSS та JavaScript, які відповідають
+                    за структуру, оформлення та функціональність сторінок.
+                </p>
+                <img src="images/2.jpg" alt="Веброзробка">
+            </div>
+
+            <!-- Вкладка 3 -->
+            <div class="tab-panel">
+                <h2>Комп'ютерні технології</h2>
+                <p>
+                    Комп'ютерні технології використовуються для
+                    обробки, зберігання та передавання інформації.
+                    Вони відіграють важливу роль у навчанні,
+                    бізнесі, науці та повсякденному житті.
+                </p>
+                <img src="images/3.jpg" alt="Комп'ютерні технології">
+            </div>
+
+            <!-- Вкладка 4 -->
+            <div class="tab-panel">
+                <h2>Штучний інтелект</h2>
+                <p>
+                    Штучний інтелект - це напрям інформаційних
+                    технологій, який займається створенням систем,
+                    здатних аналізувати дані, навчатися та виконувати
+                    завдання, що зазвичай потребують людського інтелекту.
+                </p>
+                <img src="images/4.jpg" alt="Штучний інтелект">
+            </div>
+
+            <!-- Вкладка 5 -->
+            <div class="tab-panel">
+                <h2>Кібербезпека</h2>
+                <p>
+                    Кібербезпека - це сукупність методів і технологій,
+                    спрямованих на захист комп'ютерних систем,
+                    мереж та інформації від несанкціонованого доступу,
+                    пошкодження або викрадення.
+                </p>
+                <img src="images/5.jpg" alt="Кібербезпека">
+            </div>
+
+        </div>
+
+        <!-- Завдання 2 -->
+        <h2 class="task-title">Завдання 2</h2>
+
+        <h3 class="slider-description">
+            Слайдер зображень
+        </h3>
+
+        <div class="slider">
+
+            <div class="slide">
+                <img src="images/6.jpg" alt="Перший слайд">
+                <div class="slideText">Гори в тумані</div>
+            </div>
+
+            <div class="slide">
+                <img src="images/7.jpg" alt="Другий слайд">
+                <div class="slideText">Місто</div>
+            </div>
+
+            <div class="slide">
+                <img src="images/8.jpg" alt="Третій слайд">
+                <div class="slideText">Альпійські гори</div>
+            </div>
+
+            <a class="prev" onclick="minusSlide()">&#10094;</a>
+            <a class="next" onclick="plusSlide()">&#10095;</a>
+
+        </div>
+
+  
+        <div class="slider-dots">
+            <span class="slider-dots_item" onclick="currentSlide(1)"></span>
+            <span class="slider-dots_item" onclick="currentSlide(2)"></span>
+            <span class="slider-dots_item" onclick="currentSlide(3)"></span>
+        </div>
+
+    </div>
+
+<!-- Завдання 3 -->
+<h2 class="task-title">Завдання 3</h2>
+
+<div class="variant-slider">
+
+    <h2>Транспортна логістика</h2>
+
+    <div class="variant-slides">
+
+        <div class="variant-slide">
+            <img src="images/31.jpg" alt="Вантажні перевезення">
+            <div class="variant-text">Вантажні перевезення</div>
+        </div>
+
+        <div class="variant-slide">
+            <img src="images/32.jpg" alt="Складська логістика">
+            <div class="variant-text">Складська логістика</div>
+        </div>
+
+        <div class="variant-slide">
+            <img src="images/33.jpg" alt="Міжнародні перевезення">
+            <div class="variant-text">Міжнародні перевезення</div>
+        </div>
+
+        <div class="variant-slide">
+            <img src="images/34.jpg" alt="Відвантаження продукції">
+            <div class="variant-text">Відвантаження продукції</div>
+        </div>
+
+        <div class="variant-slide">
+            <img src="images/35.jpg" alt="Транспортна система">
+            <div class="variant-text">Транспортна система</div>
+        </div>
+
+    </div>
+
+    <a class="variant-prev" onclick="variantMinus()">&#10094;</a>
+    <a class="variant-next" onclick="variantPlus()">&#10095;</a>
+
+    <div class="variant-dots">
+        <span onclick="variantCurrent(1)"></span>
+        <span onclick="variantCurrent(2)"></span>
+        <span onclick="variantCurrent(3)"></span>
+        <span onclick="variantCurrent(4)"></span>
+        <span onclick="variantCurrent(5)"></span>
+    </div>
+
+</div>
+
+<!-- Завдання 4 -->
+<h2 class="task-title">Завдання 4</h2>
+
+<div class="form-container">
+
+    <form id="housingForm" onsubmit="return validateHousingForm()">
+
+        <h2>Форма підбору будинку</h2>
+
+        <!-- Прізвище -->
+        <div class="form-row">
+            <label for="surname">Прізвище:</label>
+            <input type="text" id="surname" name="surname"
+                   oninput="validateField('surname')">
+            <span class="error" id="surnameError"></span>
+        </div>
+
+        <div class="form-row">
+            <label for="firstname">Ім'я:</label>
+            <input type="text" id="firstname" name="firstname"
+                   oninput="validateField('firstname')">
+            <span class="error" id="firstnameError"></span>
+        </div>
+
+
+        <div class="form-row">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"
+                   placeholder="yourmail@gmail.com"
+                   oninput="validateField('email')">
+            <span class="error" id="emailError"></span>
+        </div>
+
+        <div class="form-row">
+            <label for="phone">Номер телефону:</label>
+            <input type="tel" id="phone" name="phone"
+                   placeholder="+380501234567"
+                   oninput="validateField('phone')">
+            <span class="error" id="phoneError"></span>
+        </div>
+
+        <div class="form-row">
+            <label for="address">Адреса:</label>
+            <input type="text" id="address" name="address"
+                   oninput="validateField('address')">
+            <span class="error" id="addressError"></span>
+        </div>
+
+        <hr>
+
+        <div class="form-group">
+            <p>Оберіть тип житла:</p>
+
+            <label>
+                <input type="radio" name="housing" value="Квартира">
+                Квартира
+            </label>
+
+            <label>
+                <input type="radio" name="housing" value="Таунхаус">
+                Таунхаус
+            </label>
+
+            <label>
+                <input type="radio" name="housing" value="Будинок">
+                Будинок
+            </label>
+
+            <span class="error" id="housingError"></span>
+        </div>
+
+        <hr>
+
+        <div class="form-row">
+            <label for="rooms">Оберіть кількість кімнат:</label>
+
+            <select id="rooms" name="rooms">
+                <option value="1">Однокімнатні</option>
+                <option value="2">Двокімнатні</option>
+                <option value="3">Трикімнатні</option>
+                <option value="4">Чотири і більше</option>
+            </select>
+        </div>
+
+        <hr>
+
+        <div class="form-group">
+            <label for="price">Оберіть бажану ціну:</label>
+
+            <div class="price-control">
+                <input type="range" id="price"
+                       name="price" min="500" max="10000"
+                       step="100" value="3500">
+
+                <span id="priceValue">3500$</span>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="form-group">
+            <label>
+                <input type="checkbox" id="pets" name="pets">
+                Є домашні тварини
+            </label>
+        </div>
+
+        <div class="form-row wishes-row">
+            <label for="wishes">Додаткові побажання:</label>
+            <textarea id="wishes" name="wishes" rows="3"></textarea>
+        </div>
+
+        <div class="form-buttons">
+            <button type="submit">Відправити</button>
+            <button type="reset">Скасувати</button>
+        </div>
+
+        <p id="formMessage"></p>
+
+    </form>
+
+</div>
+
+
+<!-- Завдання 5 -->
+<h2 class="task-title">Завдання 5</h2>
+
+<div class="auth-container">
+
+    <h2>Логістична компанія</h2>
+    <p class="auth-description">
+        Особистий кабінет користувача
+    </p>
+
+    <div class="auth-forms">
+
+        <form id="registerForm" onsubmit="return validateRegister()">
+
+            <h3>Реєстрація</h3>
+
+            <label for="regName">Ім'я та прізвище:</label>
+            <input type="text" id="regName"
+                   placeholder="Введіть ваше ім'я">
+
+            <label for="regEmail">Email:</label>
+            <input type="text" id="regEmail"
+                   placeholder="example@gmail.com">
+
+            <label for="regPhone">Номер телефону:</label>
+            <input type="tel" id="regPhone"
+                   placeholder="+380501234567">
+
+            <label for="regPassword">Пароль:</label>
+            <input type="password" id="regPassword"
+                   placeholder="Мінімум 8 символів">
+
+            <label for="confirmPassword">Підтвердження пароля:</label>
+            <input type="password" id="confirmPassword"
+                   placeholder="Повторіть пароль">
+
+            <button type="submit">Зареєструватися</button>
+
+        </form>
+
+        <form id="loginForm" onsubmit="return validateLogin()">
+
+            <h3>Авторизація</h3>
+
+            <label for="loginEmail">Email:</label>
+            <input type="text" id="loginEmail"
+                   placeholder="Введіть Email">
+
+            <label for="loginPassword">Пароль:</label>
+            <input type="password" id="loginPassword"
+                   placeholder="Введіть пароль">
+
+            <button type="submit">Увійти</button>
+
+        </form>
+
+    </div>
+
+    <p id="authMessage"></p>
+
+</div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
