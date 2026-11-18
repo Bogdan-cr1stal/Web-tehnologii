@@ -1,0 +1,33 @@
+
+[
+    {
+        "name": "Nike Air Max 270",
+        "category": "shoe",
+        "amount": 5,
+        "image": "1.jpg"
+    },
+    {
+        "name": "Adidas Ultraboost",
+        "category": "shoe",
+        "amount": 3,
+        "image": "2.jpg"
+    },
+    {
+        "name": "New Balance 574",
+        "category": "shoe",
+        "amount": 4,
+        "image": "3.jpg"
+    },
+    {
+        "name": "Fresh Apples",
+        "category": "grocerie",
+        "amount": 10,
+        "image": "4.jpg"
+    },
+    {
+        "name": "Fresh Oranges",
+        "category": "grocerie",
+        "amount": 8,
+        "image": "5.jpg"
+    }
+]
