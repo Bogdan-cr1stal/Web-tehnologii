@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Лабораторна робота 10</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="index.js" defer></script>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">PRODUCT<span>EXPLORER.</span></div>
+
+        <div class="header-label">
+            DUMMYJSON API STORE
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="hero">
+            <div>
+                <p class="subtitle">DISCOVER OUR COLLECTION</p>
+
+                <h1>Знайди те,<br>що шукаєш.</h1>
+
+                <p class="hero-description">
+                    Переглядай товари, обирай категорії
+                    та відкривай для себе новинки.
+                </p>
+            </div>
+
+            <div class="hero-decoration">01</div>
+        </section>
+
+        <section class="catalog">
+
+            <aside class="sidebar">
+
+                <div class="sidebar-heading">
+                    <p class="subtitle">CATEGORIES</p>
+                    <h2>Категорії</h2>
+                </div>
+
+                <div id="categories-list" class="categories-list">
+                    <p class="loading">Завантаження категорій...</p>
+                </div>
+
+                <button id="all-products" class="all-products-button">
+                    See all products →
+                </button>
+
+            </aside>
+
+            <section class="products-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <p class="subtitle">OUR COLLECTION</p>
+                        <h2 id="section-title">Усі товари</h2>
+                    </div>
+
+                    <span id="products-count">0 товарів</span>
+
+                </div>
+
+                <div id="products-list" class="products-grid">
+                    <p class="loading">Завантаження товарів...</p>
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="logo">PRODUCT<span>EXPLORER.</span></div>
+        <p>© 2026 Product Explorer. Powered by DummyJSON API.</p>
+    </footer>
+
+</body>
+</html>
