@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market | Магазин</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo"><span>MARKET.</span></div>
+        <nav>
+            <a href="#catalog">Каталог</a>
+            <a href="#basket">Кошик</a>
+        </nav>
+        <div class="header-label">ONLINE STORE</div>
+    </header>
+
+    <main class="container">
+
+        <section id="catalog" class="catalog">
+            <div class="section-heading">
+                <div>
+                    <p class="subtitle">OUR COLLECTION</p>
+                    <h2>Каталог товарів</h2>
+                </div>
+                <span id="product-count">0 товарів</span>
+            </div>
+
+            <div class="filters">
+                <button class="filter active" data-category="all">Усі товари</button>
+                <button class="filter" data-category="shoe">Взуття</button>
+                <button class="filter" data-category="grocerie">Продукти</button>
+            </div>
+
+            <div id="products-list" class="products-grid"></div>
+        </section>
+
+        <section id="basket" class="basket-section">
+            <div class="section-heading">
+                <div>
+                    <p class="subtitle">YOUR SELECTION</p>
+                    <h2>Мій кошик</h2>
+                </div>
+                <span id="basket-count">0 товарів</span>
+            </div>
+
+            <div id="basket-list" class="basket-list">
+                <div class="empty-basket">
+                    <span>🛒</span>
+                    <p>Ваш кошик поки порожній</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="logo"><span>MARKET.</span></div>
+        <p>© 2026 Urban Market. All rights reserved.</p>
+    </footer>
+
+<div class="json-loader">
+    <label for="products-file">Завантажити товари:</label>
+    <input type="file" id="products-file" accept=".json">
+</div>
+
+    <script src="store.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
