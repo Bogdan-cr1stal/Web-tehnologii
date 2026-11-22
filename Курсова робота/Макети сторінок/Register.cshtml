@@ -1,0 +1,84 @@
+﻿@page
+@{
+    Layout = null;
+    ViewData["Title"] = "Реєстрація — KidSpace";
+}
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/css/register.css" asp-append-version="true">
+    <script src="~/js/register.js" asp-append-version="true" defer></script>
+</head>
+<body class="register-body">
+
+    <main class="register-page">
+        <div class="register-card">
+            <div class="register-logo">Kid<span>Space</span></div>
+
+            <h1>Створити акаунт</h1>
+            <p>Приєднуйтеся до нашого магазину!</p>
+
+            <form id="registerForm" novalidate>
+                <div class="register-field">
+                    <label for="name">Ім'я</label>
+                    <input type="text" id="name" placeholder="Ваше ім'я" autocomplete="name">
+                </div>
+
+                <div class="register-field">
+                    <label for="email">Електронна пошта</label>
+                    <input type="email" id="email" placeholder="example@gmail.com" autocomplete="email">
+                </div>
+
+                <div class="register-field">
+                    <label for="password">Пароль</label>
+                    <div class="register-password-box">
+                        <input type="password" id="password" placeholder="Мінімум 6 символів" autocomplete="new-password">
+                        <button type="button"
+                                class="register-eye-btn"
+                                data-target="password"
+                                aria-label="Показати пароль"
+                                aria-pressed="false">
+                            <span class="register-eye-icon" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="register-field">
+                    <label for="confirmPassword">Повторіть пароль</label>
+                    <div class="register-password-box">
+                        <input type="password" id="confirmPassword" placeholder="Повторіть пароль" autocomplete="new-password">
+                        <button type="button"
+                                class="register-eye-btn"
+                                data-target="confirmPassword"
+                                aria-label="Показати пароль"
+                                aria-pressed="false">
+                            <span class="register-eye-icon" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+
+                <p class="register-message" id="formMessage" role="alert" aria-live="polite"></p>
+
+                <button type="submit" class="register-submit">Зареєструватися</button>
+            </form>
+
+            <div class="register-bottom-link">
+                Уже маєте акаунт?
+                <a href="/Login">Увійти</a>
+            </div>
+        </div>
+
+        <a href="/" class="register-back-home">← Повернутися на головну</a>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,658 @@
+﻿@page
+@{
+    Layout = null;
+    ViewData["Title"] = "Каталог — KidSpace";
+}
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Каталог дитячих іграшок та товарів KidSpace.">
+
+    <title>@ViewData["Title"]</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/css/catalog.css" asp-append-version="true">
+    <script src="~/js/catalog.js" asp-append-version="true" defer></script>
+</head>
+
+<body class="catalog-body">
+
+    <header class="header">
+        <div class="container header-content">
+
+            <a href="/" class="logo">Kid<span>Space</span></a>
+
+            <nav class="navigation" id="navigation" aria-label="Головна навігація">
+                <a href="/">Головна</a>
+                <a href="/Catalog" class="active">Каталог</a>
+                <a href="/#categories">Категорії</a>
+                <a href="/#brands">Бренди</a>
+                <a href="/#about">Про нас</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="/Login" class="login-link">Увійти</a>
+
+                <a href="/Cart" class="cart-button">
+                    <span class="cart-icon">🛒</span>
+                    Кошик
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+
+                <button class="menu-toggle"
+                        id="menuToggle"
+                        type="button"
+                        aria-label="Відкрити меню"
+                        aria-expanded="false"
+                        aria-controls="navigation">
+                    ☰
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+
+        <section class="catalog-search-bar">
+            <div class="container catalog-search-inner">
+                <div class="search-box">
+                    <span class="search-icon" aria-hidden="true">⌕</span>
+                    <input type="search"
+                           id="searchInput"
+                           placeholder="Пошук товарів у каталозі..."
+                           aria-label="Пошук товарів у каталозі"
+                           autocomplete="off">
+                    <button type="button"
+                            class="search-clear"
+                            id="searchClear"
+                            aria-label="Очистити пошук"
+                            hidden>
+                        ✕
+                    </button>
+                </div>
+
+                <div class="products-count" id="productsCount">
+                    36 товарів
+                </div>
+            </div>
+        </section>
+
+        <section class="catalog-section">
+            <div class="container">
+
+                <div class="catalog-header-row">
+                    <div class="catalog-title">
+                        <span class="section-label">НАШ АСОРТИМЕНТ</span>
+                        <h1>Знайдіть щось особливе</h1>
+                        <p>Іграшки, які дарують радість щодня</p>
+                    </div>
+
+                    <div class="sort-control" id="sortControl" data-value="default">
+                        <button type="button"
+                                class="sort-trigger"
+                                id="sortTrigger"
+                                aria-haspopup="listbox"
+                                aria-expanded="false">
+                            <span class="sort-label">Сортування:</span>
+                            <span class="sort-current" id="sortCurrent">За замовчуванням</span>
+                            <span class="sort-chevron" aria-hidden="true">⌄</span>
+                        </button>
+
+                        <ul class="sort-menu"
+                            id="sortMenu"
+                            role="listbox"
+                            aria-label="Сортування товарів"
+                            hidden>
+                            <li class="sort-option is-selected" role="option" aria-selected="true" data-value="default">
+                                За замовчуванням
+                            </li>
+                            <li class="sort-option" role="option" aria-selected="false" data-value="low">
+                                Спочатку дешевші
+                            </li>
+                            <li class="sort-option" role="option" aria-selected="false" data-value="high">
+                                Спочатку дорожчі
+                            </li>
+                            <li class="sort-option" role="option" aria-selected="false" data-value="name">
+                                За назвою
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="catalog-layout">
+
+                    <aside class="catalog-filter" aria-label="Фільтр категорій">
+
+                        <div class="filter-heading">
+                            <span aria-hidden="true">☷</span>
+                            <h2>Категорії</h2>
+                        </div>
+
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="all" checked>
+                                <span>Усі товари</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="М'які іграшки">
+                                <span>М'які іграшки</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="Конструктори">
+                                <span>Конструктори</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="Машинки">
+                                <span>Машинки</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="Творчість">
+                                <span>Творчість</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="Настільні ігри">
+                                <span>Настільні ігри</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="Розвиваючі іграшки">
+                                <span>Розвиваючі іграшки</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="Ляльки">
+                                <span>Ляльки</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="Спортивні товари">
+                                <span>Спортивні товари</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="Залізниці та треки">
+                                <span>Залізниці та треки</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="Для найменших">
+                                <span>Для найменших</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="Фігурки та герої">
+                                <span>Фігурки та герої</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="Рольові ігри">
+                                <span>Рольові ігри</span>
+                            </label>
+                        </div>
+
+                        <div class="filter-info">
+                            <span aria-hidden="true">💡</span>
+                            <p>Обирайте іграшки, які розвивають уяву та творчість!</p>
+                        </div>
+
+                    </aside>
+
+                    <section class="product-area" aria-label="Список товарів">
+
+                        <div class="product-grid" id="productGrid">
+
+                            <!-- 1. М'які іграшки -->
+                            <article class="product-card" data-id="1" data-name="Плюшевий ведмедик" data-category="М'які іграшки" data-price="899" data-emoji="🧸">
+                                <div class="product-picture picture-pink">
+                                    <img class="product-image" src="~/images/catalog_images/11.jpg" alt="Плюшевий ведмедик" asp-append-version="true">
+                                    <span class="product-emoji"></span>
+                                    <small class="product-badge">Популярне</small>
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">М'які іграшки</span>
+                                    <h3>Плюшевий ведмедик</h3>
+                                    <div class="product-bottom"><strong>899 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <article class="product-card" data-id="2" data-name="Плюшевий зайчик" data-category="М'які іграшки" data-price="580" data-emoji="🐰">
+                                <div class="product-picture picture-pink">
+                                    <img class="product-image" src="~/images/catalog_images/12.jpg" alt="Плюшевий зайчик" asp-append-version="true">
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">М'які іграшки</span>
+                                    <h3>Плюшевий зайчик</h3>
+                                    <div class="product-bottom"><strong>580 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <article class="product-card" data-id="3" data-name="М'яка подушка-котик" data-category="М'які іграшки" data-price="520" data-emoji="🐱">
+                                <div class="product-picture picture-pink">
+                                    <img class="product-image" src="~/images/catalog_images/13.jpg" alt="М'яка подушка-котик" asp-append-version="true">
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">М'які іграшки</span>
+                                    <h3>М'яка подушка-котик</h3>
+                                    <div class="product-bottom"><strong>520 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <!-- 2. Конструктори -->
+                            <article class="product-card" data-id="4" data-name="Конструктор LEGO Classic" data-category="Конструктори" data-price="1250" data-emoji="🧩">
+                                <div class="product-picture picture-purple">
+                                    <img class="product-image" src="~/images/catalog_images/21.jpg" alt="Конструктор LEGO Classic" asp-append-version="true">
+                                    <small class="product-badge badge-yellow">Хіт продажів</small>
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Конструктори</span>
+                                    <h3>Конструктор LEGO Classic</h3>
+                                    <div class="product-bottom"><strong>1250 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <article class="product-card" data-id="5" data-name="Магнітний конструктор" data-category="Конструктори" data-price="1450" data-emoji="🧱">
+                                <div class="product-picture picture-purple">
+                                    <img class="product-image" src="~/images/catalog_images/22.jpg" alt="Магнітний конструктор" asp-append-version="true">
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Конструктори</span>
+                                    <h3>Магнітний конструктор</h3>
+                                    <div class="product-bottom"><strong>1450 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <article class="product-card" data-id="6" data-name="Конструктор-робот" data-category="Конструктори" data-price="1100" data-emoji="🤖">
+                                <div class="product-picture picture-purple">
+                                    <img class="product-image" src="~/images/catalog_images/23.jpg" alt="Конструктор-робот" asp-append-version="true">
+                                    <small class="product-badge">Новинка</small>
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Конструктори</span>
+                                    <h3>Конструктор-робот</h3>
+                                    <div class="product-bottom"><strong>1100 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <!-- 3. Машинки -->
+                            <article class="product-card" data-id="7" data-name="Спортивна машинка" data-category="Машинки" data-price="1100" data-emoji="🚗">
+                                <div class="product-picture picture-blue">
+                                    <img class="product-image" src="~/images/catalog_images/31.jpg" alt="Спортивна машинка" asp-append-version="true">
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Машинки</span>
+                                    <h3>Спортивна машинка</h3>
+                                    <div class="product-bottom"><strong>1100 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <article class="product-card" data-id="8" data-name="Набір машинок" data-category="Машинки" data-price="2100" data-emoji="🚙">
+                                <div class="product-picture picture-blue">
+                                    <img class="product-image" src="~/images/catalog_images/32.jpg" alt="Набір машинок" asp-append-version="true">
+                                    <small class="product-badge">Популярне</small>
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Машинки</span>
+                                    <h3>Набір машинок</h3>
+                                    <div class="product-bottom"><strong>2100 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <article class="product-card" data-id="9" data-name="Пожежна вантажівка" data-category="Машинки" data-price="1250" data-emoji="🚒">
+                                <div class="product-picture picture-blue">
+                                    <img class="product-image" src="~/images/catalog_images/33.jpg" alt="Пожежна вантажівка" asp-append-version="true">
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Машинки</span>
+                                    <h3>Пожежна вантажівка</h3>
+                                    <div class="product-bottom"><strong>1250 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                           <!-- 4. Творчість -->
+                            <article class="product-card" data-id="10" data-name="Набір для малювання" data-category="Творчість" data-price="1800" data-emoji="🎨">
+                                <div class="product-picture picture-yellow">
+                                    <img class="product-image" src="~/images/catalog_images/41.jpg" alt="Набір для малювання" asp-append-version="true">
+                                    <small class="product-badge badge-green">Для творчості</small>
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Творчість</span>
+                                    <h3>Набір для малювання</h3>
+                                    <div class="product-bottom"><strong>1800 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <article class="product-card" data-id="11" data-name="Набір пластиліну" data-category="Творчість" data-price="320" data-emoji="🖍️">
+                                <div class="product-picture picture-yellow">
+                                    <img class="product-image" src="~/images/catalog_images/42.jpg" alt="Набір пластиліну" asp-append-version="true">
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Творчість</span>
+                                    <h3>Набір пластиліну</h3>
+                                    <div class="product-bottom"><strong>320 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <article class="product-card" data-id="12" data-name="Набір для рукоділля" data-category="Творчість" data-price="1130" data-emoji="✂️">
+                                <div class="product-picture picture-yellow">
+                                    <img class="product-image" src="~/images/catalog_images/43.jpg" alt="Набір для рукоділля" asp-append-version="true">
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Творчість</span>
+                                    <h3>Набір для рукоділля</h3>
+                                    <div class="product-bottom"><strong>1130 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <!-- 5. Настільні ігри -->
+                            <article class="product-card" data-id="13" data-name="Класична настільна гра" data-category="Настільні ігри" data-price="720" data-emoji="🎲">
+                                <div class="product-picture picture-green">
+                                    <img class="product-image" src="~/images/catalog_images/51.jpg" alt="Класична настільна гра" asp-append-version="true">
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Настільні ігри</span>
+                                    <h3>Класична настільна гра</h3>
+                                    <div class="product-bottom"><strong>720 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <article class="product-card" data-id="14" data-name="Гра для всієї родини" data-category="Настільні ігри" data-price="1100" data-emoji="🎯">
+                                <div class="product-picture picture-green">
+                                    <img class="product-image" src="~/images/catalog_images/52.jpg" alt="Гра для всієї родини" asp-append-version="true">
+                                    <small class="product-badge badge-yellow">Хіт продажів</small>
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Настільні ігри</span>
+                                    <h3>Гра для всієї родини</h3>
+                                    <div class="product-bottom"><strong>1100 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <article class="product-card" data-id="15" data-name="Шаховий набір дитячий" data-category="Настільні ігри" data-price="640" data-emoji="♟️">
+                                <div class="product-picture picture-green">
+                                    <img class="product-image" src="~/images/catalog_images/53.jpg" alt="Шаховий набір дитячий" asp-append-version="true">
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Настільні ігри</span>
+                                    <h3>Шаховий набір дитячий</h3>
+                                    <div class="product-bottom"><strong>640 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <!-- 6. Розвиваючі іграшки -->
+                            <article class="product-card" data-id="16" data-name="Розвиваючий кубик" data-category="Розвиваючі іграшки" data-price="550" data-emoji="🧠">
+                                <div class="product-picture picture-blue">
+                                    <img class="product-image" src="~/images/catalog_images/61.jpg" alt="Розвиваючий кубик" asp-append-version="true">
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Розвиваючі іграшки</span>
+                                    <h3>Розвиваючий кубик</h3>
+                                    <div class="product-bottom"><strong>550 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <article class="product-card" data-id="17" data-name="Дерев'яний сортер" data-category="Розвиваючі іграшки" data-price="490" data-emoji="🔷">
+                                <div class="product-picture picture-blue">
+                                    <img class="product-image" src="~/images/catalog_images/62.jpg" alt="Дерев'яний сортер" asp-append-version="true">
+                                    <small class="product-badge">Популярне</small>
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Розвиваючі іграшки</span>
+                                    <h3>Дерев'яний сортер</h3>
+                                    <div class="product-bottom"><strong>490 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <article class="product-card" data-id="18" data-name="Інтерактивна абетка" data-category="Розвиваючі іграшки" data-price="830" data-emoji="🔤">
+                                <div class="product-picture picture-blue">
+                                    <img class="product-image" src="~/images/catalog_images/63.jpg" alt="Інтерактивна абетка" asp-append-version="true">
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Розвиваючі іграшки</span>
+                                    <h3>Інтерактивна абетка</h3>
+                                    <div class="product-bottom"><strong>830 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <!-- 7. Ляльки -->
+                            <article class="product-card" data-id="19" data-name="Модна лялька" data-category="Ляльки" data-price="760" data-emoji="🪆">
+                                <div class="product-picture picture-pink">
+                                    <img class="product-image" src="~/images/catalog_images/71.jpg" alt="Модна лялька" asp-append-version="true">
+                                    <small class="product-badge">Популярне</small>
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Ляльки</span>
+                                    <h3>Модна лялька</h3>
+                                    <div class="product-bottom"><strong>760 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <article class="product-card" data-id="20" data-name="Ляльковий будиночок" data-category="Ляльки" data-price="1690" data-emoji="🏠">
+                                <div class="product-picture picture-pink">
+                                    <img class="product-image" src="~/images/catalog_images/72.jpg" alt="Ляльковий будиночок" asp-append-version="true">
+                                    <small class="product-badge badge-yellow">Хіт продажів</small>
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Ляльки</span>
+                                    <h3>Ляльковий будиночок</h3>
+                                    <div class="product-bottom"><strong>1690 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <article class="product-card" data-id="21" data-name="Набір одягу для ляльки" data-category="Ляльки" data-price="800" data-emoji="👗">
+                                <div class="product-picture picture-pink">
+                                    <img class="product-image" src="~/images/catalog_images/73.jpg" alt="Набір одягу для ляльки" asp-append-version="true">
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Ляльки</span>
+                                    <h3>Набір одягу для ляльки</h3>
+                                    <div class="product-bottom"><strong>800 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <!-- 8. Спортивні товари -->
+                            <article class="product-card" data-id="22" data-name="Дитячий футбольний м'яч" data-category="Спортивні товари" data-price="900" data-emoji="⚽">
+                                <div class="product-picture picture-green">
+                                    <img class="product-image" src="~/images/catalog_images/81.jpg" alt="Дитячий футбольний м'яч" asp-append-version="true">
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Спортивні товари</span>
+                                    <h3>Дитячий футбольний м'яч</h3>
+                                    <div class="product-bottom"><strong>900 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <article class="product-card" data-id="23" data-name="Стрибалка зі скакалкою" data-category="Спортивні товари" data-price="430" data-emoji="🪢">
+                                <div class="product-picture picture-green">
+                                    <img class="product-image" src="~/images/catalog_images/82.jpg" alt="Стрибалка зі скакалкою" asp-append-version="true">
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Спортивні товари</span>
+                                    <h3>Стрибалка зі скакалкою</h3>
+                                    <div class="product-bottom"><strong>430 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <article class="product-card" data-id="24" data-name="Баскетбольний кільце-набір" data-category="Спортивні товари" data-price="920" data-emoji="🏀">
+                                <div class="product-picture picture-green">
+                                    <img class="product-image" src="~/images/catalog_images/83.jpg" alt="Баскетбольний кільце-набір" asp-append-version="true">
+                                    <small class="product-badge">Новинка</small>
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Спортивні товари</span>
+                                    <h3>Баскетбольний кільце-набір</h3>
+                                    <div class="product-bottom"><strong>920 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <!-- 9. Залізниці та треки -->
+                            <article class="product-card" data-id="25" data-name="Дерев'яна залізниця" data-category="Залізниці та треки" data-price="1150" data-emoji="🚂">
+                                <div class="product-picture picture-yellow">
+                                    <img class="product-image" src="~/images/catalog_images/91.jpg" alt="Дерев'яна залізниця" asp-append-version="true">
+                                    <small class="product-badge">Популярне</small>
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Залізниці та треки</span>
+                                    <h3>Дерев'яна залізниця</h3>
+                                    <div class="product-bottom"><strong>1150 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <article class="product-card" data-id="26" data-name="Гнучкий гоночний трек" data-category="Залізниці та треки" data-price="860" data-emoji="🏎️">
+                                <div class="product-picture picture-yellow">
+                                    <img class="product-image" src="~/images/catalog_images/92.jpg" alt="Гнучкий гоночний трек" asp-append-version="true">
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Залізниці та треки</span>
+                                    <h3>Гнучкий гоночний трек</h3>
+                                    <div class="product-bottom"><strong>860 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <article class="product-card" data-id="27" data-name="Швидкісний потяг-експрес" data-category="Залізниці та треки" data-price="990" data-emoji="🚄">
+                                <div class="product-picture picture-yellow">
+                                    <img class="product-image" src="~/images/catalog_images/93.jpg" alt="Швидкісний потяг-експрес" asp-append-version="true">
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Залізниці та треки</span>
+                                    <h3>Швидкісний потяг-експрес</h3>
+                                    <div class="product-bottom"><strong>990 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <!-- 10. Для найменших -->
+                            <article class="product-card" data-id="28" data-name="Пляшечка з силіконовою соскою" data-category="Для найменших" data-price="260" data-emoji="🍼">
+                                <div class="product-picture picture-purple">
+                                    <img class="product-image" src="~/images/catalog_images/101.jpg" alt="Пляшечка з силіконовою соскою" asp-append-version="true">
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Для найменших</span>
+                                    <h3>Пляшечка з силіконовою соскою</h3>
+                                    <div class="product-bottom"><strong>260 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <article class="product-card" data-id="29" data-name="Набір брязкалець" data-category="Для найменших" data-price="340" data-emoji="🔔">
+                                <div class="product-picture picture-purple">
+                                    <img class="product-image" src="~/images/catalog_images/102.jpg" alt="Набір брязкалець" asp-append-version="true">
+                                    <small class="product-badge badge-green">Для малюків</small>
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Для найменших</span>
+                                    <h3>Набір брязкалець</h3>
+                                    <div class="product-bottom"><strong>340 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <article class="product-card" data-id="30" data-name="М'який прорізувач" data-category="Для найменших" data-price="210" data-emoji="🧸">
+                                <div class="product-picture picture-purple">
+                                    <img class="product-image" src="~/images/catalog_images/103.jpg" alt="М'який прорізувач" asp-append-version="true">
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Для найменших</span>
+                                    <h3>М'який прорізувач</h3>
+                                    <div class="product-bottom"><strong>210 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <!-- 11. Фігурки та герої -->
+                            <article class="product-card" data-id="31" data-name="Фігурка динозавра" data-category="Фігурки та герої" data-price="540" data-emoji="🦖">
+                                <div class="product-picture picture-blue">
+                                    <img class="product-image" src="~/images/catalog_images/111.jpg" alt="Фігурка динозавра" asp-append-version="true">
+                                    <small class="product-badge">Популярне</small>
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Фігурки та герої</span>
+                                    <h3>Фігурка динозавра</h3>
+                                    <div class="product-bottom"><strong>540 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <article class="product-card" data-id="32" data-name="Космічний герой" data-category="Фігурки та герої" data-price="620" data-emoji="🦸">
+                                <div class="product-picture picture-blue">
+                                    <img class="product-image" src="~/images/catalog_images/112.jpg" alt="Космічний герой" asp-append-version="true">
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Фігурки та герої</span>
+                                    <h3>Космічний герой</h3>
+                                    <div class="product-bottom"><strong>620 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <article class="product-card" data-id="33" data-name="Набір фігурок драконів" data-category="Фігурки та герої" data-price="790" data-emoji="🐉">
+                                <div class="product-picture picture-blue">
+                                    <img class="product-image" src="~/images/catalog_images/113.jpg" alt="Набір фігурок драконів" asp-append-version="true">
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Фігурки та герої</span>
+                                    <h3>Набір фігурок драконів</h3>
+                                    <div class="product-bottom"><strong>790 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <!-- 12. Рольові ігри -->
+                            <article class="product-card" data-id="34" data-name="Театральний набір масок" data-category="Рольові ігри" data-price="430" data-emoji="🎭">
+                                <div class="product-picture picture-orange">
+                                    <img class="product-image" src="~/images/catalog_images/121.jpg" alt="Театральний набір масок" asp-append-version="true">
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Рольові ігри</span>
+                                    <h3>Театральний набір масок</h3>
+                                    <div class="product-bottom"><strong>430 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <article class="product-card" data-id="35" data-name="Набір юного лікаря" data-category="Рольові ігри" data-price="670" data-emoji="🩺">
+                                <div class="product-picture picture-orange">
+                                    <img class="product-image" src="~/images/catalog_images/122.jpg" alt="Набір юного лікаря" asp-append-version="true">
+                                    <small class="product-badge badge-yellow">Хіт продажів</small>
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Рольові ігри</span>
+                                    <h3>Набір юного лікаря</h3>
+                                    <div class="product-bottom"><strong>670 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                            <article class="product-card" data-id="36" data-name="Іграшкова кухня-набір" data-category="Рольові ігри" data-price="940" data-emoji="🍳">
+                                <div class="product-picture picture-orange">
+                                    <img class="product-image" src="~/images/catalog_images/123.jpg" alt="Іграшкова кухня-набір" asp-append-version="true">
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">Рольові ігри</span>
+                                    <h3>Іграшкова кухня-набір</h3>
+                                    <div class="product-bottom"><strong>940 грн</strong><button class="product-add" type="button">До кошика</button></div>
+                                </div>
+                            </article>
+
+                        </div>
+
+                        <div class="no-products" id="noProducts" hidden>
+                            <span aria-hidden="true">🔎</span>
+                            <h3>Товарів не знайдено</h3>
+                            <p>Спробуйте змінити пошуковий запит або категорію.</p>
+                            <button type="button" id="resetFilters">Скинути фільтри</button>
+                        </div>
+
+                    </section>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <a href="/" class="footer-logo">Kid<span>Space</span></a>
+                <p>Магазин дитячих товарів та гарного настрою.</p>
+            </div>
+
+            <div class="footer-bottom">
+                © 2026 KidSpace. Усі права захищені.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

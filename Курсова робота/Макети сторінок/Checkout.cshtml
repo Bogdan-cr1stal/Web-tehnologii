@@ -1,0 +1,223 @@
+﻿@page
+@{
+    Layout = null;
+    ViewData["Title"] = "Оформлення замовлення — KidSpace";
+}
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Оформлення замовлення в інтернет-магазині дитячих товарів KidSpace.">
+
+    <title>@ViewData["Title"]</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/css/checkout.css" asp-append-version="true">
+    <script src="~/js/checkout.js" asp-append-version="true" defer></script>
+</head>
+<body class="checkout-body">
+
+    <header class="checkout-header">
+        <div class="checkout-container checkout-header-inner">
+            <a href="/" class="checkout-logo">Kid<span>Space</span></a>
+
+            <nav class="checkout-nav" aria-label="Навігація оформлення">
+                <a href="/Catalog">Каталог</a>
+                <a href="/Cart">← Повернутися до кошика</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="checkout-main">
+        <div class="checkout-container">
+
+            <div class="checkout-heading">
+                <span class="checkout-label">ЗАВЕРШЕННЯ ПОКУПКИ</span>
+                <h1>Оформлення замовлення</h1>
+                <p>Заповніть контактні дані та вкажіть адресу відділення для відправки.</p>
+            </div>
+
+            <!-- Стан порожнього кошика -->
+            <section class="checkout-empty" id="checkoutEmpty" hidden>
+                <div class="checkout-empty-icon" aria-hidden="true">🛒</div>
+                <h2>Ваш кошик порожній</h2>
+                <p>Додайте іграшки з каталогу, щоб перейти до оформлення замовлення.</p>
+                <a href="/Catalog" class="checkout-primary-btn">Перейти до каталогу</a>
+            </section>
+
+            <!-- Основна сітка: форма + склад замовлення -->
+            <div class="checkout-layout" id="checkoutLayout">
+
+                <form class="checkout-form-card" id="checkoutForm" novalidate>
+
+                    <div class="checkout-block">
+                        <h2>1. Контактні дані отримувача</h2>
+
+                        <div class="checkout-field">
+                            <label for="fullName">ПІБ отримувача <span class="req">*</span></label>
+                            <input type="text"
+                                   id="fullName"
+                                   name="fullName"
+                                   placeholder="Наприклад: Коваленко Олена Сергіївна"
+                                   autocomplete="name">
+                        </div>
+
+                        <div class="checkout-row-2">
+                            <div class="checkout-field">
+                                <label for="phone">Номер телефону <span class="req">*</span></label>
+                                <input type="tel"
+                                       id="phone"
+                                       name="phone"
+                                       placeholder="+380 (__) ___-__-__"
+                                       autocomplete="tel">
+                            </div>
+
+                            <div class="checkout-field">
+                                <label for="email">Електронна адреса <span class="req">*</span></label>
+                                <input type="email"
+                                       id="email"
+                                       name="email"
+                                       placeholder="example@gmail.com"
+                                       autocomplete="email">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkout-block">
+                        <h2>2. Куди відправити замовлення</h2>
+
+                        <div class="checkout-field">
+                            <label for="city">Місто або населений пункт <span class="req">*</span></label>
+                            <input type="text"
+                                   id="city"
+                                   name="city"
+                                   placeholder="Наприклад: Київ, Суми, Львів"
+                                   autocomplete="address-level2">
+                        </div>
+
+                        <div class="checkout-field">
+                            <label>Служба доставки <span class="req">*</span></label>
+                            <div class="delivery-services" role="radiogroup" aria-label="Служба доставки">
+                                <label class="delivery-option">
+                                    <input type="radio" name="deliveryService" value="Нова Пошта" checked>
+                                    <span class="delivery-card">
+                                        <strong>Нова Пошта</strong>
+                                        <small>Відділення або поштомат (1–2 дні)</small>
+                                    </span>
+                                </label>
+
+                                <label class="delivery-option">
+                                    <input type="radio" name="deliveryService" value="Укрпошта">
+                                    <span class="delivery-card">
+                                        <strong>Укрпошта</strong>
+                                        <small>Експрес або Стандарт (2–4 дні)</small>
+                                    </span>
+                                </label>
+
+                                <label class="delivery-option">
+                                    <input type="radio" name="deliveryService" value="Meest ПОШТА">
+                                    <span class="delivery-card">
+                                        <strong>Meest ПОШТА</strong>
+                                        <small>Відділення або поштомат (2–3 дні)</small>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="checkout-field">
+                            <label for="branch">Номер або адреса відділення / поштомату <span class="req">*</span></label>
+                            <input type="text"
+                                   id="branch"
+                                   name="branch"
+                                   placeholder="Наприклад: Відділення №12 (вул. Соборна, 15)">
+                        </div>
+
+                        <div class="checkout-field">
+                            <label for="comment">Коментар до замовлення (необов'язково)</label>
+                            <textarea id="comment"
+                                      name="comment"
+                                      rows="2"
+                                      placeholder="Уточнення щодо пакування чи зручного часу дзвінка..."></textarea>
+                        </div>
+                    </div>
+
+                    <p class="checkout-message" id="checkoutMessage" role="alert" aria-live="polite"></p>
+
+                    <button type="submit" class="checkout-submit-btn">
+                        Підтвердити замовлення
+                    </button>
+
+                </form>
+
+                <!-- Права колонка: склад замовлення -->
+                <aside class="checkout-summary-card" aria-label="Ваше замовлення">
+                    <h2>Ваше замовлення</h2>
+
+                    <div class="checkout-items" id="checkoutItems"></div>
+
+                    <div class="checkout-totals">
+                        <div class="checkout-total-row">
+                            <span>Товари (<span id="summaryCount">0</span>)</span>
+                            <strong id="summarySubtotal">0 грн</strong>
+                        </div>
+                        <div class="checkout-total-row">
+                            <span>Доставка</span>
+                            <strong id="summaryShipping">За тарифами перевізника</strong>
+                        </div>
+                        <div class="checkout-total-row is-final">
+                            <span>До сплати</span>
+                            <strong id="summaryTotal">0 грн</strong>
+                        </div>
+                    </div>
+
+                    <p class="checkout-free-note" id="freeShippingNote"></p>
+                </aside>
+
+            </div>
+
+            <section class="checkout-success" id="checkoutSuccess" hidden>
+                <div class="checkout-success-badge" aria-hidden="true">✓</div>
+                <h2>Замовлення успішно оформлено!</h2>
+                <p class="checkout-order-number">Номер замовлення: <strong id="orderNumber">#KS-0000</strong></p>
+
+                <div class="checkout-receipt" id="orderReceipt"></div>
+
+                <div class="checkout-success-actions">
+                    <a href="/Catalog" class="checkout-primary-btn">Продовжити покупки</a>
+                    <a href="/" class="checkout-secondary-btn">На головну</a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="checkout-footer">
+        <div class="checkout-container">
+            © 2026 KidSpace. Усі права захищені.
+        </div>
+        <!-- СПЛИВАЮЧЕ ВІКНО УСПІШНОГО ОФОРМЛЕННЯ -->
+    <div class="order-modal-backdrop" id="orderSuccessModal" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle" hidden>
+        <div class="order-modal-card">
+            <button type="button" class="order-modal-close" id="closeOrderModalBtn" aria-label="Закрити вікно">✕</button>
+
+            <div class="order-modal-icon" aria-hidden="true">✓</div>
+            <h2 id="orderModalTitle">Ваше замовлення успішно оформлено!</h2>
+            <p class="order-modal-subtitle">Номер замовлення: <strong id="modalOrderNumber">#KS-0000</strong></p>
+
+            <div class="order-modal-details" id="modalOrderDetails"></div>
+
+            <div class="order-modal-actions">
+                <a href="/Catalog" class="checkout-primary-btn">Продовжити покупки</a>
+                <a href="/" class="checkout-secondary-btn">На головну</a>
+            </div>
+        </div>
+    </div>
+    </footer>
+
+</body>
+</html>

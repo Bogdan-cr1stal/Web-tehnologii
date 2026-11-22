@@ -1,0 +1,74 @@
+﻿
+@page
+@{
+    Layout = null;
+    ViewData["Title"] = "Кошик — KidSpace";
+}
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кошик — KidSpace</title>
+
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/cart.css" asp-append-version="true">
+
+    <script src="~/js/script.js" defer></script>
+    <script src="~/js/cart.js" defer></script>
+</head>
+<body class="cart-body">
+
+    <header class="header">
+        <div class="container header-content">
+
+            <a href="/" class="logo">Kid<span>Space</span></a>
+
+            <nav class="navigation">
+                <a href="/">Головна</a>
+                <a href="/Catalog">Каталог</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="/Login" class="login-link">Увійти</a>
+
+                <a href="/Cart" class="cart-button">
+                    Кошик
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <main class="container cart-page">
+
+        <div class="cart-heading">
+            <span class="cart-breadcrumb">
+                <a href="/">Головна</a> / Кошик
+            </span>
+
+            <h1>Ваш кошик</h1>
+
+            <p>Перевірте обрані товари перед оформленням замовлення.</p>
+        </div>
+
+        <div class="cart-content-wrapper">
+            <div id="cartContent"></div>
+        </div>
+
+        <div class="cart-back">
+            <a href="/Catalog">← Продовжити покупки</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-bottom">
+            © 2026 KidSpace. Усі права захищені.
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,220 @@
+﻿*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body.register-body {
+    min-height: 100vh;
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #34415b;
+    background: #f1f6ff;
+    line-height: 1.5;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+.register-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 18px;
+    gap: 16px;
+}
+
+.register-card {
+    width: 100%;
+    max-width: 440px;
+    background: #ffffff;
+    padding: 36px 32px;
+    border-radius: 20px;
+    border: 1px solid #e7edf6;
+    box-shadow: 0 15px 45px rgba(36, 59, 104, 0.08);
+}
+
+.register-logo {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 900;
+    color: #243b68;
+    letter-spacing: -1px;
+    margin-bottom: 18px;
+}
+
+    .register-logo span {
+        color: #4385e8;
+    }
+
+.register-card h1 {
+    color: #243b68;
+    font-size: 26px;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+.register-card > p {
+    text-align: center;
+    color: #7d8ba3;
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+.register-card form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-field {
+    margin-bottom: 15px;
+}
+
+    .register-field label {
+        display: block;
+        color: #243b68;
+        font-weight: 800;
+        font-size: 13px;
+        margin-bottom: 7px;
+    }
+
+.register-card input[type="text"],
+.register-card input[type="email"],
+.register-card input[type="password"] {
+    width: 100%;
+    height: 46px;
+    padding: 0 14px;
+    color: #34415b;
+    background: #ffffff;
+    border: 1px solid #dce3ee;
+    border-radius: 10px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.register-card input:focus {
+    border-color: #4385e8;
+    box-shadow: 0 0 0 3px rgba(67, 133, 232, 0.14);
+}
+
+.register-password-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+    .register-password-box input {
+        padding-right: 44px;
+    }
+
+.register-eye-btn {
+    position: absolute;
+    right: 8px;
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    background: transparent;
+    border: 0;
+    border-radius: 8px;
+    color: #7d8ba3;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+    .register-eye-btn:hover,
+    .register-eye-btn.is-shown {
+        color: #4385e8;
+        background: #f0f5ff;
+    }
+
+.register-eye-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+}
+
+.register-message {
+    min-height: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    margin: 2px 0 14px;
+    color: #e15d5d;
+}
+
+    .register-message.success {
+        color: #278b55;
+    }
+
+.register-submit {
+    width: 100%;
+    min-height: 48px;
+    background: #4385e8;
+    color: #ffffff;
+    border: 0;
+    border-radius: 10px;
+    padding: 12px 18px;
+    font-size: 15px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+    .register-submit:hover {
+        background: #2f70d0;
+        transform: translateY(-1px);
+    }
+
+.register-bottom-link {
+    text-align: center;
+    color: #7d8ba3;
+    font-size: 13px;
+    margin-top: 22px;
+}
+
+    .register-bottom-link a {
+        color: #4385e8;
+        font-weight: 900;
+    }
+
+        .register-bottom-link a:hover {
+            text-decoration: underline;
+        }
+
+.register-back-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #243b68;
+    font-size: 14px;
+    font-weight: 800;
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: color 0.2s ease, background 0.2s ease;
+}
+
+    .register-back-home:hover {
+        color: #4385e8;
+        background: rgba(67, 133, 232, 0.08);
+    }
+
+@media (max-width: 480px) {
+    .register-card {
+        padding: 28px 20px;
+        border-radius: 16px;
+    }
+}
