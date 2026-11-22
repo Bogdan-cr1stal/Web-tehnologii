@@ -1,0 +1,460 @@
+@page
+@{
+    Layout = null;
+    ViewData["Title"] = "KidSpace — магазин дитячих товарів";
+}
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KidSpace — магазин іграшок, конструкторів, творчих наборів та подарунків для дітей.">
+
+    <title>@ViewData["Title"]</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true">
+</head>
+
+<body class="home-page">
+
+    <header class="home-header">
+        <div class="home-container home-header-inner">
+
+            <a href="/" class="home-logo">
+                Kid<span>Space</span>
+            </a>
+
+            <nav class="home-navigation" id="navigation" aria-label="Головна навігація">
+                <a href="/" class="active">Головна</a>
+                <a href="/Catalog">Каталог</a>
+                <a href="#categories">Категорії</a>
+                <a href="#brands">Бренди</a>
+                <a href="#about">Про нас</a>
+                <a href="#contacts">Контакти</a>
+            </nav>
+
+            <div class="home-header-actions">
+                <a href="/Login" class="home-login">Увійти</a>
+
+                <a href="/Cart" class="home-cart">
+                    Кошик
+                    <span id="cartCount">0</span>
+                </a>
+            </div>
+
+            <button class="home-menu-toggle"
+                    id="menuToggle"
+                    type="button"
+                    aria-label="Відкрити меню"
+                    aria-expanded="false"
+                    aria-controls="navigation">
+                ☰
+            </button>
+
+        </div>
+    </header>
+
+    <main>
+
+        <section class="home-hero">
+            <div class="home-container home-hero-inner">
+
+                <div class="home-hero-content">
+
+                    <span class="home-eyebrow">
+                        <span class="home-eyebrow-dot"></span>
+                        МАГАЗИН ДИТЯЧИХ ТОВАРІВ
+                    </span>
+
+                    <h1>
+                        Світ дитинства
+                        <span>починається тут!</span>
+                    </h1>
+
+                    <p>
+                        Іграшки, які надихають, розвивають уяву
+                        та дарують незабутні емоції. Знаходьте
+                        найкраще для маленьких відкривачів світу.
+                    </p>
+
+                    <div class="home-hero-buttons">
+                        <a href="/Catalog" class="home-button home-button-primary">
+                            Переглянути каталог
+                            <span>→</span>
+                        </a>
+
+                        <a href="#categories" class="home-button home-button-light">
+                            Наші категорії
+                        </a>
+                    </div>
+
+                    <div class="home-hero-note">
+                        <span class="home-note-icon">✦</span>
+                        Радість у кожній покупці
+                    </div>
+
+                </div>
+
+                <div class="home-hero-art" aria-hidden="true">
+
+                    <div class="home-art-circle"></div>
+                    <div class="home-art-circle-small"></div>
+
+                    <div class="home-art-card home-art-card-one">
+                        <span>🧸</span>
+                    </div>
+
+                    <div class="home-art-card home-art-card-two">
+                        <span>🚀</span>
+                    </div>
+
+                    <div class="home-art-card home-art-card-three">
+                        <span>🎨</span>
+                    </div>
+
+                    <div class="home-art-card home-art-card-four">
+                        <span>🧩</span>
+                    </div>
+
+                    <div class="home-art-center">
+                        <span>HAPPY</span>
+                        <strong>CHILDHOOD</strong>
+                        <small>Місце для маленьких мрій</small>
+                    </div>
+
+                    <span class="home-art-star home-star-one">✦</span>
+                    <span class="home-art-star home-star-two">✧</span>
+                    <span class="home-art-star home-star-three">✦</span>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section class="home-categories" id="categories">
+            <div class="home-container">
+
+                <div class="home-section-heading">
+                    <span class="home-section-label">НАШ АСОРТИМЕНТ</span>
+                    <h2>Популярні категорії</h2>
+                    <p>
+                        Оберіть категорію, щоб одразу перейти до підбірки товарів.
+                    </p>
+                </div>
+
+                <div class="home-category-grid">
+
+                    <a href="/Catalog?category=М%27які%20іграшки" class="home-category-card">
+                        <div class="home-category-icon icon-blue">🧸</div>
+                        <h3>М'які іграшки</h3>
+                        <span>Переглянути товари <b>→</b></span>
+                    </a>
+
+                    <a href="/Catalog?category=Конструктори" class="home-category-card">
+                        <div class="home-category-icon icon-purple">🧩</div>
+                        <h3>Конструктори</h3>
+                        <span>Переглянути товари <b>→</b></span>
+                    </a>
+
+                    <a href="/Catalog?category=Машинки" class="home-category-card">
+                        <div class="home-category-icon icon-yellow">🚗</div>
+                        <h3>Машинки</h3>
+                        <span>Переглянути товари <b>→</b></span>
+                    </a>
+
+                    <a href="/Catalog?category=Творчість" class="home-category-card">
+                        <div class="home-category-icon icon-pink">🎨</div>
+                        <h3>Творчість</h3>
+                        <span>Переглянути товари <b>→</b></span>
+                    </a>
+
+                    <a href="/Catalog?category=Настільні%20ігри" class="home-category-card">
+                        <div class="home-category-icon icon-green">🎲</div>
+                        <h3>Настільні ігри</h3>
+                        <span>Переглянути товари <b>→</b></span>
+                    </a>
+
+                    <a href="/Catalog?category=Розвиваючі%20іграшки" class="home-category-card">
+                        <div class="home-category-icon icon-blue">🧠</div>
+                        <h3>Розвиваючі іграшки</h3>
+                        <span>Переглянути товари <b>→</b></span>
+                    </a>
+
+                    <a href="/Catalog?category=Ляльки" class="home-category-card">
+                        <div class="home-category-icon icon-pink">🪆</div>
+                        <h3>Ляльки</h3>
+                        <span>Переглянути товари <b>→</b></span>
+                    </a>
+
+                    <a href="/Catalog?category=Спортивні%20товари" class="home-category-card">
+                        <div class="home-category-icon icon-green">⚽</div>
+                        <h3>Спортивні товари</h3>
+                        <span>Переглянути товари <b>→</b></span>
+                    </a>
+
+                    <a href="/Catalog?category=Залізниці%20та%20треки" class="home-category-card">
+                        <div class="home-category-icon icon-yellow">🚂</div>
+                        <h3>Залізниці та треки</h3>
+                        <span>Переглянути товари <b>→</b></span>
+                    </a>
+
+                    <a href="/Catalog?category=Для%20найменших" class="home-category-card">
+                        <div class="home-category-icon icon-purple">🍼</div>
+                        <h3>Для найменших</h3>
+                        <span>Переглянути товари <b>→</b></span>
+                    </a>
+
+                    <a href="/Catalog?category=Фігурки%20та%20герої" class="home-category-card">
+                        <div class="home-category-icon icon-blue">🦖</div>
+                        <h3>Фігурки та герої</h3>
+                        <span>Переглянути товари <b>→</b></span>
+                    </a>
+
+                    <a href="/Catalog?category=Рольові%20ігри" class="home-category-card">
+                        <div class="home-category-icon icon-orange">🎭</div>
+                        <h3>Рольові ігри</h3>
+                        <span>Переглянути товари <b>→</b></span>
+                    </a>
+
+                </div>
+
+                <div class="home-center-button">
+                    <a href="/Catalog" class="home-outline-button">
+                        Перейти до всіх товарів <span>→</span>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="home-brands" id="brands">
+            <div class="home-container">
+
+                <div class="home-section-heading">
+                    <span class="home-section-label">ЯКІСТЬ ТА ДОВІРА</span>
+                    <h2>Популярні бренди</h2>
+                    <p>
+                        Відомі виробники, які створюють цікаві
+                        та якісні іграшки для дітей.
+                    </p>
+                </div>
+
+                <div class="home-brand-grid">
+                    <div class="home-brand-card">
+                        <div class="home-brand-logo-slot">
+                            <img src="~/images/brend/1.jpg" alt="LEGO" asp-append-version="true">
+                        </div>
+                    </div>
+
+                    <div class="home-brand-card">
+                        <div class="home-brand-logo-slot">
+                            <img src="~/images/brend/2.jpg" alt="Barbie" asp-append-version="true">
+                        </div>
+                    </div>
+
+                    <div class="home-brand-card">
+                        <div class="home-brand-logo-slot">
+                            <img src="~/images/brend/3.jpg" alt="MATTEL" asp-append-version="true">
+                        </div>
+                    </div>
+
+                    <div class="home-brand-card">
+                        <div class="home-brand-logo-slot">
+                            <img src="~/images/brend/4.jpg" alt="Hasbro" asp-append-version="true">
+                        </div>
+                    </div>
+
+                    <div class="home-brand-card">
+                        <div class="home-brand-logo-slot">
+                            <img src="~/images/brend/5.jpg" alt="Clementoni" asp-append-version="true">
+                        </div>
+                    </div>
+
+                    <div class="home-brand-card">
+                        <div class="home-brand-logo-slot">
+                            <img src="~/images/brend/6.jpg" alt="Fisher-Price" asp-append-version="true">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="home-benefits">
+            <div class="home-container">
+
+                <div class="home-section-heading">
+                    <span class="home-section-label">ЧОМУ KIDSPACE</span>
+                    <h2>Покупки з комфортом</h2>
+                    <p>
+                        Подбали про важливі деталі, щоб вибір
+                        і придбання товарів були простими.
+                    </p>
+                </div>
+
+                <div class="home-benefit-grid">
+
+                    <div class="home-benefit-card">
+                        <div class="home-benefit-icon">🚚</div>
+                        <div>
+                            <h3>Швидка доставка</h3>
+                            <p>Оперативна доставка замовлень по Україні.</p>
+                        </div>
+                    </div>
+
+                    <div class="home-benefit-card">
+                        <div class="home-benefit-icon">🛡️</div>
+                        <div>
+                            <h3>Якісні товари</h3>
+                            <p>Ретельно підібраний асортимент для дітей.</p>
+                        </div>
+                    </div>
+
+                    <div class="home-benefit-card">
+                        <div class="home-benefit-icon">💳</div>
+                        <div>
+                            <h3>Зручна оплата</h3>
+                            <p>Зрозумілий процес оформлення замовлення.</p>
+                        </div>
+                    </div>
+
+                    <div class="home-benefit-card">
+                        <div class="home-benefit-icon">💬</div>
+                        <div>
+                            <h3>Підтримка клієнтів</h3>
+                            <p>Допомога з вибором та оформленням покупки.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section class="home-promo">
+            <div class="home-container home-promo-inner">
+
+                <div class="home-promo-content">
+                    <span class="home-promo-label">ЧАС ДЛЯ ПРИЄМНИХ ПОКУПОК</span>
+
+                    <h2>
+                        Маленькі подарунки.
+                        <span>Великі емоції!</span>
+                    </h2>
+
+                    <p>
+                        Обирайте іграшки для веселих ігор,
+                        творчості та розвитку.
+                    </p>
+
+                    <a href="/Catalog" class="home-promo-button">
+                        Обрати подарунок <span>→</span>
+                    </a>
+                </div>
+
+                <div class="home-promo-art" aria-hidden="true">
+                    <div class="home-promo-circle"></div>
+                    <span class="home-promo-gift">🎁</span>
+                    <span class="home-promo-sparkle sparkle-one">✦</span>
+                    <span class="home-promo-sparkle sparkle-two">✧</span>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="home-about" id="about">
+            <div class="home-container home-about-inner">
+
+                <div class="home-about-art" aria-hidden="true">
+                    <div class="home-about-circle">
+                        <span>🌈</span>
+                    </div>
+                    <div class="home-about-tag">KidSpace</div>
+                </div>
+
+                <div class="home-about-content">
+                    <span class="home-section-label">ТРОХИ ПРО НАС</span>
+
+                    <h2>
+                        Простір для щасливого дитинства
+                    </h2>
+
+                    <p>
+                        KidSpace — це інтернет-магазин дитячих товарів,
+                        де кожна іграшка допомагає відкривати нові
+                        можливості, розвивати творчість та дарувати радість.
+                    </p>
+
+                    <p>
+                        Ми зібрали різноманітні товари для цікавого
+                        дозвілля, навчання та розвитку дітей.
+                    </p>
+
+                    <a href="/Catalog" class="home-button home-button-primary">
+                        Знайти свою іграшку <span>→</span>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="home-footer" id="contacts">
+        <div class="home-container">
+
+            <div class="home-footer-grid">
+
+                <div class="home-footer-about">
+                    <a href="/" class="home-logo home-footer-logo">
+                        Kid<span>Space</span>
+                    </a>
+
+                    <p>
+                        Простір, де народжуються дитячі мрії.
+                        Іграшки, творчість та радість для кожної дитини.
+                    </p>
+                </div>
+
+                <div class="home-footer-column">
+                    <h3>Навігація</h3>
+                    <a href="/">Головна</a>
+                    <a href="/Catalog">Каталог</a>
+                    <a href="#categories">Категорії</a>
+                    <a href="#brands">Бренди</a>
+                    <a href="#about">Про нас</a>
+                </div>
+
+                <div class="home-footer-column">
+                    <h3>Покупцям</h3>
+                    <a href="/Cart">Кошик</a>
+                    <a href="/Login">Особистий кабінет</a>
+                    <a href="/Register">Реєстрація</a>
+                </div>
+
+                <div class="home-footer-column">
+                    <h3>Контакти</h3>
+                    <a href="tel:+380000000000">+380 00 000 00 00</a>
+                    <a href="mailto:kidspace@gmail.com">kidspace@gmail.com</a>
+                    <span>Україна</span>
+                </div>
+
+            </div>
+
+            <div class="home-footer-bottom">
+                <span>© 2026 KidSpace. Усі права захищені.</span>
+                <span>Створено з турботою про дитинство ♡</span>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="~/js/script.js" asp-append-version="true" defer></script>
+
+</body>
+</html>
