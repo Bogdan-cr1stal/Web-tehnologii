@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог товарів</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <h1>TechStore</h1>
+            <p>Каталог сучасної техніки</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="catalog">
+            <h2>Наші товари</h2>
+
+            <div class="filters">
+                <input type="text" id="search"
+                    placeholder="Пошук товару...">
+
+                <select id="category">
+                    <option value="all">Усі категорії</option>
+                    <option value="Смартфони">Смартфони</option>
+                    <option value="Ноутбуки">Ноутбуки</option>
+                    <option value="Аксесуари">Аксесуари</option>
+                </select>
+
+                <select id="sort">
+                    <option value="default">Без сортування</option>
+                    <option value="name">За назвою</option>
+                    <option value="priceAsc">Від дешевих до дорогих</option>
+                    <option value="priceDesc">Від дорогих до дешевих</option>
+                </select>
+            </div>
+
+            <p id="result-count"></p>
+
+            <div id="products" class="products">
+                <p>Завантаження товарів...</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+    </footer>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
